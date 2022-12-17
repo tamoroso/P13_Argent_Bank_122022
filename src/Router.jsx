@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Layout } from "./Components";
+import { Layout } from "./components";
 import { Error, Home, Login, Profile } from "./pages";
 
 const App = () => {
