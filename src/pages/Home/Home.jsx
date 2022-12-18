@@ -38,18 +38,18 @@ const Home = () => {
       <div className={styles.hero}>
         <section className={styles.hero_content}>
           <h2 className="sr-only">Promoted Content</h2>
-          <p class={styles.subtitle}>No fees.</p>
-          <p class={styles.subtitle}>No minimum deposit.</p>
-          <p class={styles.subtitle}>High interest rates.</p>
-          <p class={styles.text}>
+          <p className={styles.subtitle}>No fees.</p>
+          <p className={styles.subtitle}>No minimum deposit.</p>
+          <p className={styles.subtitle}>High interest rates.</p>
+          <p className={styles.text}>
             Open a savings account with Argent Bank today!
           </p>
         </section>
       </div>
       <section className={styles.features}>
         <h2 className="sr-only">Features</h2>
-        {featuresData.map((feature) => (
-          <FeatureItem featureData={feature} />
+        {featuresData.map((feature, index) => (
+          <FeatureItem key={index} featureData={feature} />
         ))}
       </section>
     </main>
