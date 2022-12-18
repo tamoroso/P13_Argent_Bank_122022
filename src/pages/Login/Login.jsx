@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
-  const [loginUser, { isLoading, isError, error, isSuccess }] =
-    useLoginUserMutation();
+  const [loginUser, { isSuccess }] = useLoginUserMutation();
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({ email: "", password: "" });
 
