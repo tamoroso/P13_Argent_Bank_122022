@@ -1,0 +1,27 @@
+.main_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.main_nav_logo {
+  display: flex;
+  align-items: center;
+}
+
+.main_nav_logo img {
+  max-width: 100%;
+  width: 200px;
+}
+
+.main_nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.main_nav svg {
+  margin-right: 0.5rem;
+}

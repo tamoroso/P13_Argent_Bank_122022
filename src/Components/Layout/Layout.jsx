@@ -1,12 +1,15 @@
 import React from "react";
+import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
 import styles from "./Layout.module.css";
 
 const Layout = ({ children }) => {
   return (
-    <div>
-      <h2>Layout</h2>
+    <>
+      <NavBar />
       {children}
-    </div>
+      <Footer />
+    </>
   );
 };
 
