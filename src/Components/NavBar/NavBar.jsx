@@ -2,16 +2,19 @@ import { faSignOut, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { logout } from "../../redux/features/userSlice";
 import styles from "./NavBar.module.css";
 
 const NavBar = () => {
   const user = useSelector((state) => state?.userState?.user);
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  console.log(location);
 
   const MenuItems = () => {
-    if (user) {
+    if (user && location.pathname === "/profile") {
       return (
         <div>
           <Link to="#">

@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { AccountCard } from "../../components";
 import { useUpdateMeMutation } from "../../redux/api/userApi";
 import styles from "./Profile.module.css";
 
 const User = () => {
-  const token = useSelector((state) => state?.userState.token);
   const user = useSelector((state) => state?.userState?.user);
   const [editMode, setEditMode] = useState(false);
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
   });
-  const navigate = useNavigate();
   const [updateMe] = useUpdateMeMutation();
-
-  useEffect(() => {
-    if (!token) {
-      navigate("/");
-    }
-  }, [token, navigate]);
 
   useEffect(() => {
     if (user) {
