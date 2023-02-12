@@ -21,7 +21,7 @@ export const authApi = createApi({
           dispatch(setToken(data.token));
           await dispatch(userApi.endpoints.getMe.initiate(null));
         } catch (error) {
-          console.log(error);
+          console.error(error);
         }
       },
     }),

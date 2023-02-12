@@ -11,8 +11,6 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  console.log(location);
-
   const MenuItems = () => {
     if (user && location.pathname === "/profile") {
       return (

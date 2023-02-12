@@ -7,12 +7,13 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FormErrors } from "../../components";
 
 const Login = () => {
-  const [loginUser, { isSuccess }] = useLoginUserMutation();
+  const [loginUser, { isSuccess, isError, error }] = useLoginUserMutation();
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({ email: "", password: "" });
   const [formErrors, setFormErrors] = useState({ email: "", password: "" });
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [submitErrors, setSubmitErrors] = useState("");
 
   const validateField = (fieldName, value) => {
     let fieldValidationErrors = formErrors;
@@ -41,6 +42,7 @@ const Login = () => {
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
     validateField(name, value);
+    setSubmitErrors("");
   };
 
   const handleSubmit = (event) => {
@@ -52,7 +54,10 @@ const Login = () => {
     if (isSuccess) {
       navigate("/profile");
     }
-  }, [isSuccess, navigate]);
+    if (isError) {
+      setSubmitErrors(error?.data?.message);
+    }
+  }, [isSuccess, navigate, isError, error]);
 
   return (
     <main className={styles.main}>
@@ -85,6 +90,7 @@ const Login = () => {
             <label htmlFor="remember-me">Remember me</label>
           </div>
           <FormErrors formErrors={formErrors} />
+          <p style={{ color: "red" }}>{submitErrors}</p>
           <input
             className={styles.signIn_button}
             type="submit"
